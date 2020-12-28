@@ -1,8 +1,10 @@
+# Be sure to install Python 3.6 or higher and pip
+# The use pip to install, numpy, pandas and openpyxl 
+
 import numpy as np
 import pandas as pd 
 import inspect
 import itertools
-
 
 def find_matches(teller, noemer, goktekst, match, file):
     def gcd(a, b):
