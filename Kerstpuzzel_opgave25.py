@@ -115,7 +115,7 @@ file = r".\Kerstpuzzel letters.xlsx"
 
 teller = 1466473
 noemer = 314160
-goktekst = "GEBOORTE"
+goktekst = "STEEVAST"
 find_matches(teller, noemer, goktekst, match, file)
 
 # opties = [
@@ -127,3 +127,10 @@ find_matches(teller, noemer, goktekst, match, file)
 # ]
 # for i in range(len(opties)):
 #     find_matches(opties[i][0], opties[i][1], opties[i][2], match, file)
+
+# teller = 1466473
+# noemer = 314160
+# opties = ["FREQUENT", "STEEVAST"]
+# for i in range(len(opties)):
+#     print(opties[i])
+#     find_matches(teller, noemer, opties[i], match, file)
