@@ -50,10 +50,10 @@ class FracCalculator():
                 
         # base case 3 (if length reached):
         if(count == 0):
+            print(current_word)
             # checken of de breuk overeenkomt met de gezochte breuk:
             if(current_frac == self.goal_frac):
                 self.found_fracs.append(current_word)
-                print(current_word)
         
         # base case 4: minimum possible still too high:
         if(current_frac + count*Fraction(1,20) > self.goal_frac):
