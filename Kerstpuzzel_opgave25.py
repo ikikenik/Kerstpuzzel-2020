@@ -31,7 +31,7 @@ def find_matches(teller, noemer, goktekst, match, file):
         elif common_divisor == 1:
             return "%d/%d is already at its most simplified state" % (numer, denom)
         else:
-            return f"{reduced_num}  {reduced_den}"
+            return reduced_num, reduced_den
             #return "%d/%d is simplified to %d/%d" % (numer, denom, reduced_num, reduced_den)
     
     def splitword(word):
@@ -63,10 +63,6 @@ def find_matches(teller, noemer, goktekst, match, file):
         for j in range(len(combination[i])):
             sum += combination[i][j]
             if (abs(sum - ratio) < match): # exacte getallen matchen niet, maar een heel klein verschil is goed genoeg
-                n += 1
-                print(f"\n\nCombinatie nr. {n} gevonden :)")
-                print(f"Som is {sum}")
-                print(f"Verschil is {sum - ratio}")
                 numbers1 = []
                 numbers2 = []
                 # make answer combinations
@@ -74,10 +70,6 @@ def find_matches(teller, noemer, goktekst, match, file):
                     numbers1.append(combination2[i][combo_counter][0] + 1)
                     numbers2.append(combination2[i][combo_counter][1])
                     # print(combination2[i][combo_counter])
-
-                for k in range(len(letters)): # print out the answer
-                    print(f"Letter {letters[k]} staat in vraag {numbers1[k]} van 20{numbers2[k]}")
-
                 # check answer
                 # calculate noemer
                 reconstructed_noemer = 1
@@ -88,10 +80,18 @@ def find_matches(teller, noemer, goktekst, match, file):
                 reconstructed_teller = 0
                 for i in range(len(numbers1)):
                     reconstructed_teller += ((numbers1[i] * reconstructed_noemer) / numbers2[i])
-                    #print(reconstructed_teller)
-                #print("Teller is", reconstructed_teller)
-                print(f"Oorspronkelijke teller en noemer zijn: {teller} en {noemer}")
-                print(f"De gevonden teller en noemer zijn:     {simplify_fraction(reconstructed_teller, reconstructed_noemer)}")
+                reconstructed_noemer2 = simplify_fraction(reconstructed_teller, reconstructed_noemer)[1]
+                if reconstructed_noemer2 == noemer:
+                    n += 1
+                    print(f"\n\nCombinatie nr. {n} gevonden :)")
+                    print(f"Som is {sum}")
+                    print(f"Verschil is {sum - ratio}")
+                    for k in range(len(letters)): # print out the answer
+                        print(f"Letter {letters[k]} staat in vraag {numbers1[k]} van 20{numbers2[k]}")
+
+                    #print("Teller is", reconstructed_teller)
+                    print(f"Oorspronkelijke teller en noemer zijn: {teller} en {noemer}")
+                    print(f"De gevonden teller en noemer zijn:     {simplify_fraction(reconstructed_teller, reconstructed_noemer)}")
 
 
 """
@@ -111,11 +111,11 @@ def find_matches(teller, noemer, goktekst, match, file):
 """
 
 match = 0.0001
-file = ".\\Kerstpuzzel 2020\\Kerstpuzzel letters.xlsx"
+file = r".\Kerstpuzzel letters.xlsx"
 
-teller = 301925
-noemer = 99484
-goktekst = "WELKE"
+teller = 1466473
+noemer = 314160
+goktekst = "GEBOORTE"
 find_matches(teller, noemer, goktekst, match, file)
 
 # opties = [
