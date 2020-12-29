@@ -38,17 +38,30 @@ class FracCalculator():
         
     # recursieve functie:
     def check_frac(self, current_frac, current_word, count):
+        
         # base case 1 (if not in vocab)
         if(self.vocab_added and count < self.length):
-            if not any(s.startswith(current_word.lower()) for s in self.vocab):
+            if not any(current_word.lower() in s for s in self.vocab):
                 return
+        
+        # base case 2 (if frac too high):
+        if(current_frac > self.goal_frac):
+            return
                 
-        # base case 2 (if length reached):
+        # base case 3 (if length reached):
         if(count == 0):
             # checken of de breuk overeenkomt met de gezochte breuk:
             if(current_frac == self.goal_frac):
                 self.found_fracs.append(current_word)
                 print(current_word)
+        
+        # base case 4: minimum possible still too high:
+        if(current_frac + count*Fraction(1,20) > self.goal_frac):
+            return
+        
+        # base case 5: maximum passible still too low:
+        if(current_frac + count*Fraction(29,12) < self.goal_frac):
+            return
         
         # als aan geen van alle bovenstaande voorwaarden is voldaan, verder zoeken:
         else:

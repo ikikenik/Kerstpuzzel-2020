@@ -49,7 +49,7 @@ def create_list(table):
                 
         
 if __name__ == '__main__':
-    
+    """
     frac = Fraction(463,195)
     word_length = 2
     
@@ -66,9 +66,9 @@ if __name__ == '__main__':
     frac = Fraction(62,99)
     word_length = 2
     r4 = find_word_with_fraction(frac, word_length, True)
-    
-    frac = Fraction(399,208)
-    word_length = 2
+    """
+    frac = Fraction(1749257 , 652080)
+    word_length = 5
     r5 = find_word_with_fraction(frac, word_length, True)
     
     # optie 2:
