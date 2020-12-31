@@ -81,6 +81,7 @@ def find_matches(teller, noemer, goktekst, match, file):
                 for i in range(len(numbers1)):
                     reconstructed_teller += ((numbers1[i] * reconstructed_noemer) / numbers2[i])
                 reconstructed_noemer2 = simplify_fraction(reconstructed_teller, reconstructed_noemer)[1]
+                # print(reconstructed_teller, reconstructed_noemer2)
                 if reconstructed_noemer2 == noemer:
                     n += 1
                     print(f"\n\nCombinatie nr. {n} gevonden :)")
@@ -95,30 +96,44 @@ def find_matches(teller, noemer, goktekst, match, file):
 
 
 """
-301925	99484	Wiens
-121	48	Nr
-		1
-521	273	Hit
-62	99	Is
-113	112	er
-		50
+301925	99484	Welke
+121	    48	    Nr
+		        1
+521	    273	    Hit
+62	    99	    Is
+113	    112	    er
+		        50
 12815	3536	jaar
-399	208	na
-2458	1001	haar
-1466473	314160	geboorte
+399	    208	    na
+2458	1001	dato
+1466473	314160	
 1749257	652080	
-1466473	314160	bezongen
+1466473	314160	
 """
 
 match = 0.0001
 file = r".\Kerstpuzzel letters.xlsx"
 
+
+
+# teller = 2458
+# noemer = 1001
+# goktekst = "DATO"
+# find_matches(teller, noemer, goktekst, match, file)
+
+# teller = 301925
+# noemer = 99484
+# goktekst = "WELKE"
+# find_matches(teller, noemer, goktekst, match, file)
+
+
 teller = 1466473
 noemer = 314160
-goktekst = "STEEVAST"
+goktekst = "BEZINGEN"
 find_matches(teller, noemer, goktekst, match, file)
 
-# opties = [
+
+# # opties = [
 #     #teller, noemer, goktekst
 #     [113, 112, "ER"]
 #     ,[12815, 3536, "JAAR"]
@@ -130,7 +145,7 @@ find_matches(teller, noemer, goktekst, match, file)
 
 # teller = 1466473
 # noemer = 314160
-# opties = ["FREQUENT", "STEEVAST"]
+# opties = ["BRABANTS", "BEZONGEN", "GEZONGEN" ,"GEBOORTE", "NOTERING", "ONTSTAAN", "UITGIFTE", "HITLIJST", "EINDELYK", "FREQUENT", "JAARLYKS"]
 # for i in range(len(opties)):
 #     print(opties[i])
 #     find_matches(teller, noemer, opties[i], match, file)
